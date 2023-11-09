@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class Cart(models.Model):
     user = models.ForeignKey("user.User", on_delete=models.CASCADE)
     product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
@@ -9,6 +10,12 @@ class Cart(models.Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.product.name} in cart for {self.user.username}"
+    
+
+class WishList(models.Model):
+    product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
+    user = models.ForeignKey("user.User", on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 

@@ -10,9 +10,9 @@ STATUS = (
 )
 
 PAYMENT_TYPE = (
-    ("cash", "cash_on_delivery"),
+    ("cash", "cash on delivery"),
     ("paypal", "paypal"),
-    ("cc", "credit_card"),
+    ("cc", "credit card"),
     ("transfer", "Bank Transfer")
 
 )
@@ -25,6 +25,7 @@ class Payment(models.Model):
     status = models.CharField(choices=STATUS, default="pending")
     payment_type = models.CharField(choices=PAYMENT_TYPE, default="cash")
     description = models.CharField(max_length=100, default="")
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
 
     def __str__(self):
@@ -77,4 +78,7 @@ class Payment(models.Model):
         else:
             # Handle payment creation error
             return None
+        
+
+#we need to implement a payment gateway for credit / debit cards next
 

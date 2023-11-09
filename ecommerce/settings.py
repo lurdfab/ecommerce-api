@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'orders',
     'cart',
     'payments',
+    'shipping_tax',
 
      # Third party apps
     'rest_framework',
@@ -240,7 +241,7 @@ REST_FRAMEWORK = {
      
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny', #this is for the general 
+        'rest_framework.permissions.AllowAny', #this is for the general permission classes for every endpoint in this app.
     ],
    
 }

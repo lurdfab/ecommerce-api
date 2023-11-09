@@ -5,5 +5,5 @@ from .models import *
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
-        fields = ("user", "order", "timestamp", "status", "payment_type", "description")
+        fields = ("user", "order", "timestamp", "status", "payment_type", "description", "image")
         read_only_fields = ("user", "order", "timestamp", "status",)

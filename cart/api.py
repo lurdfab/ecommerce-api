@@ -16,3 +16,10 @@ class CartItemViewSet(viewsets.ModelViewSet):
         
 
 
+class WishListViewSet(viewsets.ModelViewSet):
+    queryset = WishList.objects.all()
+    serializer_class = WishListSerializer
+    permission_class = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

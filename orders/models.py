@@ -6,7 +6,7 @@ class Order(models.Model):
     user = models.ForeignKey("user.User", on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
     shipping_address = models.TextField(max_length=100)
-    is_delivered = models.BooleanField(default=False)
+    is_delivered = models.BooleanField(default=False)  #I need to implement the order status after created and payment is made
     
     
     def __str__(self):
