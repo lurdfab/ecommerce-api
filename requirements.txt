@@ -1,0 +1,15 @@
+django
+pillow
+djangorestframework
+django-filter
+psycopg2
+# djmail
+# django-jinja
+pytest-django
+python-decouple
+black
+django-mptt
+djangorestframework-simplejwt #JWT token
+
+
+#pip3 install -r requirements.txt (run command to install these libraries)
