@@ -3,7 +3,7 @@ from .models import *
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("user", "order_date", "shipping_address", "is_delivered")
+    list_display = ("user", "order_date", "is_delivered")
 
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem)

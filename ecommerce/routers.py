@@ -26,5 +26,7 @@ router.register(r"order/(?P<id>\d+)/payment", PaymentViewSet)
 router.register(r"wishlist", WishListViewSet)
 #search
 router.register(r"search", ProductSearchViewSet)
+#addresses
+router.register(r"address", AddressesViewSet)
 
 

@@ -5,6 +5,26 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.utils import timezone
 
 
+
+
+
+
+class Addresses(models.Model):
+    user = models.ForeignKey("user.User",  on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, blank=True, null=True)
+    phone_number = models.CharField(max_length=100, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    town = models.CharField(max_length=100, blank=True, null=True)
+    state = models.CharField(max_length=50, blank=True, null=True)
+    zipcode = models.CharField(max_length=100, null=True, blank=True)
+    country = models.CharField(max_length=50, blank=True, null=True)
+   
+    
+  
+
+    def __str__(self):
+        return self.name
+
 class User(AbstractBaseUser, PermissionsMixin):
     """
     An abstract base class implementing a fully featured User model with
@@ -74,6 +94,7 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name = _("userProfile")
         verbose_name_plural = _("userProfiles")
+
         
     
     def __str__(self):

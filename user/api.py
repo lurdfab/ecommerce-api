@@ -74,3 +74,15 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         return serializer.save(user=self.request.user)
+    
+class AddressesViewSet(viewsets.ModelViewSet):
+    queryset = Addresses.objects.all()
+    serializer_class = AddressesSerializer
+    # permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(user=self.request.user)
+
+    
+   

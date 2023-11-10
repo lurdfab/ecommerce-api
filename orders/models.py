@@ -1,11 +1,23 @@
 from django.db import models
 
-
+DELIVERY = (
+    ("free", "free"),
+    ("standard", "standard"),
+    ("express", "express")
+)
 
 class Order(models.Model):
     user = models.ForeignKey("user.User", on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
-    shipping_address = models.TextField(max_length=100)
+    name = models.CharField(max_length=100, blank=True, null=True)
+    phone_number = models.CharField(max_length=100, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    town = models.CharField(max_length=100, blank=True, null=True)
+    state = models.CharField(max_length=50, blank=True, null=True)
+    zipcode = models.CharField(max_length=100, null=True, blank=True)
+    country = models.CharField(max_length=50, blank=True, null=True)
+    delivery = models.CharField(choices=DELIVERY, default="free")
+    coupon = models.ForeignKey("discount.Discount", on_delete=models.SET_NULL, null=True, blank=True)
     is_delivered = models.BooleanField(default=False)  #I need to implement the order status after created and payment is made
     
     

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'orders',
     'cart',
     'payments',
-    'shipping_tax',
+    'discount',
 
      # Third party apps
     'rest_framework',

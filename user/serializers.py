@@ -52,3 +52,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ('address', 'phone_number')
+
+
+class AddressesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Addresses
+        fields = ('name', 'phone_number', 'address', 'town', 'state', 'zipcode', 'country',)
