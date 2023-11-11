@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate
 from rest_framework import viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class RegisterViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -71,6 +72,7 @@ class LogoutViewSet(viewsets.ModelViewSet):
 class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         return serializer.save(user=self.request.user)
@@ -78,7 +80,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 class AddressesViewSet(viewsets.ModelViewSet):
     queryset = Addresses.objects.all()
     serializer_class = AddressesSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         qs = super().get_queryset()

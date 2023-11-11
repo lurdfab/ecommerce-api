@@ -63,7 +63,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='images/')
     stock = models.PositiveIntegerField()
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    tax = models.IntegerField()
+    # tax = models.IntegerField()
     # objects = models.Manager()
     # variants = VariantManager()
 
