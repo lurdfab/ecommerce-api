@@ -8,6 +8,8 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework import filters
 from rest_framework.permissions import IsAuthenticated
+from .pagination import CustomPageNumberPagination
+
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -25,6 +27,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [IsAuthenticated,]
+    pagination_class = CustomPageNumberPagination
     filter_backends = [filters.SearchFilter]
     search_fields = ['name'] #gives errors whenever I want to search using other fields, will come back to this
 

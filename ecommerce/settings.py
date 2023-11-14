@@ -231,7 +231,8 @@ LOCALE_PATHS = (
 )
 
 
-#restframework settings
+#restframework settings, whatever we set here will be applied globally across all endpoints on this app unless we specify certain parameters ourselves
+#in the views.py 
 REST_FRAMEWORK = {
     "NON_FIELD_ERRORS_KEYS": "errors", #this is what prints out when we send a bad request
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -243,6 +244,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny', #this is for the general permission classes for every endpoint in this app.
     ],
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', #this is for the pagination set globally so we can overide it at the views level
+    'PAGE_SIZE': 100
    
 }
 

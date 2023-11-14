@@ -31,7 +31,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     
     def get_token(self, obj):
         if obj:
-            token = Token.objects.create(user=obj)
+            token, created = Token.objects.get_or_create(user=obj)
             return token.key
         return None
 

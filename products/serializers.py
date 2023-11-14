@@ -35,7 +35,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ("category", "name", "description", "price", "image", "stock", "brand")
+        fields = ("id", "category", "name", "description", "price", "image", "stock", "brand")
         read_only_fields = ("owner",)
 
     # def get_a(self, obj):
